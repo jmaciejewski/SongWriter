@@ -53,5 +53,8 @@ public class SongWriterTest {
     public void test_some_lines_one(){
         assertEquals(fifthLine,songWriter.getSomeLines(5,5));
     }
-
+    @Test
+    public void test_all_lines(){
+        assertEquals(text,songWriter.getLines());
+    }
 }
