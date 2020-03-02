@@ -1,3 +1,8 @@
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
 public class SongWriterTest {
     static String[] text={"On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree.",
             "On the second day of Christmas my true love gave to me: two Turtle Doves, and a Partridge in a Pear Tree.",
@@ -12,4 +17,25 @@ public class SongWriterTest {
             "On the eleventh day of Christmas my true love gave to me: eleven Pipers Piping, ten Lords-a-Leaping, nine Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.",
             "On the twelfth day of Christmas my true love gave to me: twelve Drummers Drumming, eleven Pipers Piping, ten Lords-a-Leaping, nine Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree."
     };
+    SongWriter songWriter;
+
+    @Before
+    public void setUp(){
+        songWriter = new SongWriter(text);
+    }
+
+    @Test
+    public void test_first_line(){
+        assertEquals(text[0],songWriter.getSingleLine(1));
+    }
+    @Test
+    public void test_fifth_line(){
+        assertEquals(text[4],songWriter.getSingleLine(5));
+    }
+    @Test
+    public void test_last_line(){
+        assertEquals(text[11],songWriter.getSingleLine(12));
+    }
+
+
 }
