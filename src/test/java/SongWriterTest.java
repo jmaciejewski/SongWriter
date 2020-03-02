@@ -57,4 +57,20 @@ public class SongWriterTest {
     public void test_all_lines(){
         assertEquals(text,songWriter.getLines());
     }
+    @Test(expected = IllegalArgumentException.class)
+    public void test_single_line_below_one(){
+        assertEquals(null,songWriter.getSingleLine(0));
+    }
+    @Test(expected = IllegalArgumentException.class)
+    public void test_single_line_above_max(){
+        assertEquals(null,songWriter.getSingleLine(100));
+    }
+    @Test(expected = IllegalArgumentException.class)
+    public void test_some_lines_bad_partition(){
+        assertEquals(null,songWriter.getSomeLines(5,3));
+    }
+    @Test(expected = IllegalArgumentException.class)
+    public void test_some_lines_out_of_range(){
+        assertEquals(null,songWriter.getSomeLines(5,100));
+    }
 }
